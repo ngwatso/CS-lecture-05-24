@@ -51,3 +51,64 @@ create dict jewelCount; for i in jewels, jewelCount[i] = stones.count(i); return
 '''
 
 # ===============
+
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        
+        # Method 1
+#         counts = []
+
+#         for i in nums:
+#             x = 0
+#             for j in nums:
+#                 if j < i:
+#                     x += 1
+#                 else:
+#                     continue
+
+#             counts.append(x)            
+
+#         return counts
+
+
+        # Method 2
+
+        counts = {}
+    
+        newList = sorted(nums)
+        
+        nums_2 = []
+        
+        for i in newList:
+            counts[i] = newList.index(i)
+            
+        for i in nums:
+            nums_2.append(counts[i])
+            
+            
+        return nums_2
+            
+        
+'''
+
+U:
+
+[1, 2, 3, 4, 5]
+output = [0, 1, 2, 3, 4]
+
+[1, 1, 1, 2, 3]
+output = [0, 0, 0, 3, 4]
+
+[5, 4, 3, 2, 1]
+output = [4, 3, 2, 1, 0]
+
+P:
+
+create var x, which will count integers, less than i.  Iterate through nums, returning x for i.
+
+
+create dict counts; create list newList = nums.sort(); for i in newList, counts[i] = newList.index(i)
+'''
+
+# ===============
+
